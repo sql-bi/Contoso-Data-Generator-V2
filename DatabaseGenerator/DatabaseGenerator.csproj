@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>   
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="31.0.3" />
+    <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
+    <PackageReference Include="MathNet.Numerics" Version="5.0.0" />
+    <PackageReference Include="Parquet.Net" Version="4.23.5" />
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="echo Custom assembly version (start)&#xD;&#xA;for /f &quot;delims=&quot; %25%25i in ('git rev-parse HEAD ') do set ZHASH=%25%25i&#xD;&#xA;echo Current hash: %25ZHASH%25&#xD;&#xA;echo [assembly: System.Reflection.AssemblyProduct(&quot;DatabaseGeneratorV2 - %25ZHASH%25&quot;)] &gt;$(ProjectDir)assemblygithash.cs&#xD;&#xA;echo Custom assembly version (end)" />
+  </Target>
+ 
+</Project>
