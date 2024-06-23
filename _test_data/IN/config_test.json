@@ -6,7 +6,7 @@
   "CutDateAfter": "2050-11-20",
   "CustomerFakeGenerator": 100000,
   "CustomerPercentage": 0.15,
-  "OutputFormat": "DELTATABLE",
+  "OutputFormat": "CSV",
   "SalesOrders": "BOTH",
   "DeltaTableOrdersPerFile": 1000000,
   "ParquetOrdersRowGroupSize": 250000,

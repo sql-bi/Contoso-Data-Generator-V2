@@ -22,13 +22,13 @@ CREATE TABLE [dbo].[OrderRows](
 ) ON [PRIMARY]
 
 
-ALTER TABLE [dbo].[OrderRows] WITH CHECK ADD  CONSTRAINT [FK_OrderRows_Orders]   FOREIGN KEY([OrderKey])   REFERENCES [dbo].[Orders]   ([OrderKey])
-ALTER TABLE [dbo].[OrderRows] WITH CHECK ADD  CONSTRAINT [FK_OrderRows_Products] FOREIGN KEY([ProductKey]) REFERENCES [dbo].[Products] ([ProductKey])
+ALTER TABLE [dbo].[OrderRows] WITH CHECK ADD  CONSTRAINT [FK_OrderRows_Orders]   FOREIGN KEY([OrderKey])   REFERENCES [dbo].[Orders]  ([OrderKey])
+ALTER TABLE [dbo].[OrderRows] WITH CHECK ADD  CONSTRAINT [FK_OrderRows_Products] FOREIGN KEY([ProductKey]) REFERENCES [dbo].[Product] ([ProductKey])
 ALTER TABLE [dbo].[OrderRows] CHECK CONSTRAINT [FK_OrderRows_Orders]
 ALTER TABLE [dbo].[OrderRows] CHECK CONSTRAINT [FK_OrderRows_Products]
 
-ALTER TABLE [dbo].[Orders] WITH CHECK ADD CONSTRAINT [FK_Orders_Customers] FOREIGN KEY([CustomerKey]) REFERENCES [dbo].[Customers] ([CustomerKey])
-ALTER TABLE [dbo].[Orders] WITH CHECK ADD CONSTRAINT [FK_Orders_Stores]    FOREIGN KEY([StoreKey])    REFERENCES [dbo].[Stores]    ([StoreKey])
+ALTER TABLE [dbo].[Orders] WITH CHECK ADD CONSTRAINT [FK_Orders_Customers] FOREIGN KEY([CustomerKey]) REFERENCES [dbo].[Customer] ([CustomerKey])
+ALTER TABLE [dbo].[Orders] WITH CHECK ADD CONSTRAINT [FK_Orders_Stores]    FOREIGN KEY([StoreKey])    REFERENCES [dbo].[Store]    ([StoreKey])
 ALTER TABLE [dbo].[Orders] CHECK CONSTRAINT [FK_Orders_Customers]
 ALTER TABLE [dbo].[Orders] CHECK CONSTRAINT [FK_Orders_Stores]
 

@@ -1,24 +1,24 @@
 DECLARE @LOGLINE NVARCHAR(10) = Char(10) + Char(10) + '#### '
 
-DECLARE @csvCurrExch   NVARCHAR(500)
-DECLARE @csvCustomers  NVARCHAR(500)
-DECLARE @csvDates      NVARCHAR(500)
-DECLARE @csvProducts   NVARCHAR(500)
-DECLARE @csvStores     NVARCHAR(500)
-DECLARE @sqlTxt        VARCHAR(max)
+DECLARE @csvCurrExch  NVARCHAR(500)
+DECLARE @csvCustomer  NVARCHAR(500)
+DECLARE @csvDate      NVARCHAR(500)
+DECLARE @csvProduct   NVARCHAR(500)
+DECLARE @csvStore     NVARCHAR(500)
+DECLARE @sqlTxt       VARCHAR(max)
 
 PRINT @LOGLINE + 'CD: ' + '$(varCD)'
 
-SET @csvCurrExch   = '$(varCD)' + '\inputcsv\currencyexchanges.csv'
-SET @csvCustomers  = '$(varCD)' + '\inputcsv\customers.csv'
-SET @csvDates      = '$(varCD)' + '\inputcsv\dates.csv'
-SET @csvProducts   = '$(varCD)' + '\inputcsv\products.csv'
-SET @csvStores     = '$(varCD)' + '\inputcsv\stores.csv'
+SET @csvCurrExch = '$(varCD)' + '\inputcsv\currencyexchange.csv'
+SET @csvCustomer = '$(varCD)' + '\inputcsv\customer.csv'
+SET @csvDate     = '$(varCD)' + '\inputcsv\date.csv'
+SET @csvProduct  = '$(varCD)' + '\inputcsv\product.csv'
+SET @csvStore    = '$(varCD)' + '\inputcsv\store.csv'
 
 
 PRINT @LOGLINE + 'Load data'
-PRINT @LOGLINE + @csvCurrExch;   EXEC ('BULK INSERT [CurrencyExchanges] FROM ''' + @csvCurrExch +  ''' WITH ( TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');
-PRINT @LOGLINE + @csvCustomers;  EXEC ('BULK INSERT [Customers]         FROM ''' + @csvCustomers + ''' WITH ( TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');
-PRINT @LOGLINE + @csvDates;      EXEC ('BULK INSERT [Dates]             FROM ''' + @csvDates +     ''' WITH ( TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');
-PRINT @LOGLINE + @csvProducts;   EXEC ('BULK INSERT [Products]          FROM ''' + @csvProducts +  ''' WITH ( TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');
-PRINT @LOGLINE + @csvStores;     EXEC ('BULK INSERT [Stores]            FROM ''' + @csvStores +    ''' WITH ( TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');
+PRINT @LOGLINE + @csvCurrExch;  EXEC ('BULK INSERT [CurrencyExchange] FROM ''' + @csvCurrExch + ''' WITH ( TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');
+PRINT @LOGLINE + @csvCustomer;  EXEC ('BULK INSERT [Customer]         FROM ''' + @csvCustomer + ''' WITH ( TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');
+PRINT @LOGLINE + @csvDate;      EXEC ('BULK INSERT [Date]             FROM ''' + @csvDate +     ''' WITH ( TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');
+PRINT @LOGLINE + @csvProduct;   EXEC ('BULK INSERT [Product]          FROM ''' + @csvProduct +  ''' WITH ( TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');
+PRINT @LOGLINE + @csvStore;     EXEC ('BULK INSERT [Store]            FROM ''' + @csvStore +    ''' WITH ( TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');

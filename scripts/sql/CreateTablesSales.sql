@@ -17,9 +17,9 @@ CREATE TABLE [dbo].[Sales](
 ) ON [PRIMARY]
 
 
-ALTER TABLE [dbo].[Sales] WITH CHECK ADD CONSTRAINT [FK_Sales_Customers] FOREIGN KEY([CustomerKey]) REFERENCES [dbo].[Customers] ([CustomerKey])
-ALTER TABLE [dbo].[Sales] WITH CHECK ADD CONSTRAINT [FK_Sales_Products]  FOREIGN KEY([ProductKey])  REFERENCES [dbo].[Products] ([ProductKey])
-ALTER TABLE [dbo].[Sales] WITH CHECK ADD CONSTRAINT [FK_Sales_Stores]    FOREIGN KEY([StoreKey])    REFERENCES [dbo].[Stores] ([StoreKey])
+ALTER TABLE [dbo].[Sales] WITH CHECK ADD CONSTRAINT [FK_Sales_Customers] FOREIGN KEY([CustomerKey]) REFERENCES [dbo].[Customer] ([CustomerKey])
+ALTER TABLE [dbo].[Sales] WITH CHECK ADD CONSTRAINT [FK_Sales_Products]  FOREIGN KEY([ProductKey])  REFERENCES [dbo].[Product]  ([ProductKey])
+ALTER TABLE [dbo].[Sales] WITH CHECK ADD CONSTRAINT [FK_Sales_Stores]    FOREIGN KEY([StoreKey])    REFERENCES [dbo].[Store]    ([StoreKey])
 
 ALTER TABLE [dbo].[Sales] CHECK CONSTRAINT [FK_Sales_Customers]
 ALTER TABLE [dbo].[Sales] CHECK CONSTRAINT [FK_Sales_Products]

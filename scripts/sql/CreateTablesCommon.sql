@@ -2,23 +2,23 @@
 DROP TABLE IF EXISTS [dbo].[OrderRows];
 DROP TABLE IF EXISTS [dbo].[Orders];
 DROP TABLE IF EXISTS [dbo].[Sales];
-DROP TABLE IF EXISTS [dbo].[Customers];
-DROP TABLE IF EXISTS [dbo].[Products];
-DROP TABLE IF EXISTS [dbo].[Stores];
-DROP TABLE IF EXISTS [dbo].[CurrencyExchanges];
-DROP TABLE IF EXISTS [dbo].[Dates];
+DROP TABLE IF EXISTS [dbo].[Customer];
+DROP TABLE IF EXISTS [dbo].[Product];
+DROP TABLE IF EXISTS [dbo].[Store];
+DROP TABLE IF EXISTS [dbo].[CurrencyExchange];
+DROP TABLE IF EXISTS [dbo].[Date];
 
 
-CREATE TABLE [dbo].[CurrencyExchanges](
+CREATE TABLE [dbo].[CurrencyExchange](
     [Date]          [date]          NOT NULL,
     [FromCurrency]  [nvarchar](10)  NOT NULL,
     [ToCurrency]    [nvarchar](10)  NOT NULL,
     [Exchange]      [float]         NOT NULL,
-    CONSTRAINT [PK_CurrencyExchanges] PRIMARY KEY CLUSTERED ( [Date] ASC, [FromCurrency] ASC, [ToCurrency] ASC ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+    CONSTRAINT [PK_CurrencyExchange] PRIMARY KEY CLUSTERED ( [Date] ASC, [FromCurrency] ASC, [ToCurrency] ASC ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 
 
-CREATE TABLE [dbo].[Customers](
+CREATE TABLE [dbo].[Customer](
     [CustomerKey]    [int]            NOT NULL,
     [GeoAreaKey]     [int]            NOT NULL,
     [StartDT]        [Date]           NULL,
@@ -43,11 +43,11 @@ CREATE TABLE [dbo].[Customers](
     [Vehicle]        [nvarchar](50)   NULL,
     [Latitude]       [float]          NOT NULL,
     [Longitude]      [float]          NOT NULL,    
-    CONSTRAINT [PK_Customers] PRIMARY KEY CLUSTERED ( [CustomerKey] ASC ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+    CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED ( [CustomerKey] ASC ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 
  
-CREATE TABLE [dbo].[Dates](
+CREATE TABLE [dbo].[Date](
     [Date]               [Date]          NOT NULL ,
     [DateKey]            [nvarchar](50)  NOT NULL,
     [Year]               [int]           NOT NULL ,
@@ -65,11 +65,11 @@ CREATE TABLE [dbo].[Dates](
     [DayofWeekNumber]    [int]           NOT NULL,
     [WorkingDay]         [int]           NOT NULL ,
     [WorkingDayNumber]   [int]           NOT NULL,
-    CONSTRAINT [PK_Dates] PRIMARY KEY CLUSTERED ( [DateKey] ASC )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+    CONSTRAINT [PK_Date] PRIMARY KEY CLUSTERED ( [DateKey] ASC )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 
 
-CREATE TABLE [dbo].[Products](
+CREATE TABLE [dbo].[Product](
     [ProductKey]       [int]            NOT NULL,
     [ProductCode]      [nvarchar](200)  NOT NULL,
     [ProductName]      [nvarchar](200)  NULL,
@@ -84,11 +84,11 @@ CREATE TABLE [dbo].[Products](
     [CategoryName]     [nchar](50)      NULL,
     [SubCategoryKey]   [int]            NOT NULL,
     [SubCategoryName]  [nvarchar](50)   NULL,
-    CONSTRAINT [PK_TestProducts] PRIMARY KEY CLUSTERED ( [ProductKey] ASC ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY] 
+    CONSTRAINT [PK_TestProduct] PRIMARY KEY CLUSTERED ( [ProductKey] ASC ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY] 
  ) ON [PRIMARY]
 
 
-CREATE TABLE [dbo].[Stores] (
+CREATE TABLE [dbo].[Store] (
     [StoreKey]       [int]             NOT NULL,
     [StoreCode]      [int]             NOT NULL,
     [GeoAreaKey]     [int]             NOT NULL,
@@ -100,6 +100,6 @@ CREATE TABLE [dbo].[Stores] (
     [Description]    [nvarchar](100)   NULL,
     [SquareMeters]   [int]             NULL,
     [Status]         [nvarchar](50)    NULL,
-    CONSTRAINT [PK_Stores] PRIMARY KEY CLUSTERED ( [StoreKey] ASC )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+    CONSTRAINT [PK_Store] PRIMARY KEY CLUSTERED ( [StoreKey] ASC )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 
