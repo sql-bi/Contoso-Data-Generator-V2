@@ -2,12 +2,12 @@
 ECHO --- Start
 
 IF "%1" == "" (
-    SET /P "id=Enter dataset ID: "
+    SET /P "id=Enter ID: "
 ) ELSE (
 	SET id=%1
 )
 
-ECHO Option: %id%
+ECHO OPTION:: %id%
 
 IF "%id%" == "csv-100k"      CALL :do_build  %id%  CSV         100000     0.05  2015-01-01  10  2014-05-18  2024-04-20  ""
 IF "%id%" == "delta-100k"    CALL :do_build  %id%  DELTATABLE  100000     0.05  2015-01-01  10  2014-05-18  2024-04-20  20000
@@ -27,6 +27,6 @@ GOTO :eof
 
 
 :do_build
-ECHO do build : %1 %2 %3 %4 %5 %6 %7
+ECHO DO BUILD : %1 %2 %3 %4 %5 %6 %7
 ..\..\DatabaseGenerator\bin\Release\net6.0\DatabaseGenerator.exe config.json  data.xlsx  out\%1  cache  param:OutputFormat=%2  param:OrdersCount=%3  param:CustomerPercentage=%4  param:StartDT=%5 param:YearsCount=%6 param:CutDateBefore=%7  param:CutDateAfter=%8 param:DeltaTableOrdersPerFile=%9
 

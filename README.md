@@ -1,9 +1,9 @@
 # Contoso Data Generator V2
 
 
-DataGenerator is a tool for generating sets of fake data, ready to be imported into PowerBI or Fabric OneLake for analysis. This is the V2 version, evolution of the [older one](https://github.com/sql-bi/Contoso-Data-Generator).
+DataGenerator is a tool for generating sample data, ready to be imported into PowerBI or Fabric OneLake for analysis. This is the V2 version, evolution of the [older one](https://github.com/sql-bi/Contoso-Data-Generator).
 
-If you are just interested in **ready to use datasets** , [download them here.](https://github.com/sql-bi/Contoso-Data-Generator-V2-Data)
+If you are just interested in **ready to use sets of data** , [download them here.](https://github.com/sql-bi/Contoso-Data-Generator-V2-Data)
 
 Supported output formats:
  - Parquet

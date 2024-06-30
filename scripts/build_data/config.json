@@ -4,7 +4,7 @@
   "YearsCount": 10,
   "CutDateBefore": "2000-05-18",
   "CutDateAfter": "2050-11-12",
-  "CustomerFakeGenerator": -1000000,
+  "CustomerFakeGenerator": -100000,
   "CustomerPercentage": 0.15,
   "OutputFormat": "CSV",
   "SalesOrders": "SALES",
