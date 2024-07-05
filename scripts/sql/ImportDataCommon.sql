@@ -17,8 +17,8 @@ SET @csvStore    = '$(varCD)' + '\inputcsv\store.csv'
 
 
 PRINT @LOGLINE + 'Load data'
-PRINT @LOGLINE + @csvCurrExch;  EXEC ('BULK INSERT [Data].[CurrencyExchange] FROM ''' + @csvCurrExch + ''' WITH ( TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');
-PRINT @LOGLINE + @csvCustomer;  EXEC ('BULK INSERT [Data].[Customer]         FROM ''' + @csvCustomer + ''' WITH ( TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');
-PRINT @LOGLINE + @csvDate;      EXEC ('BULK INSERT [Data].[Date]             FROM ''' + @csvDate +     ''' WITH ( TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');
-PRINT @LOGLINE + @csvProduct;   EXEC ('BULK INSERT [Data].[Product]          FROM ''' + @csvProduct +  ''' WITH ( TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');
-PRINT @LOGLINE + @csvStore;     EXEC ('BULK INSERT [Data].[Store]            FROM ''' + @csvStore +    ''' WITH ( TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');
+PRINT @LOGLINE + @csvCurrExch;  EXEC ('BULK INSERT [Data].[CurrencyExchange] FROM ''' + @csvCurrExch + ''' WITH (CODEPAGE = ''65001'', TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');
+PRINT @LOGLINE + @csvCustomer;  EXEC ('BULK INSERT [Data].[Customer]         FROM ''' + @csvCustomer + ''' WITH (CODEPAGE = ''65001'', TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');
+PRINT @LOGLINE + @csvDate;      EXEC ('BULK INSERT [Data].[Date]             FROM ''' + @csvDate +     ''' WITH (CODEPAGE = ''65001'', TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');
+PRINT @LOGLINE + @csvProduct;   EXEC ('BULK INSERT [Data].[Product]          FROM ''' + @csvProduct +  ''' WITH (CODEPAGE = ''65001'', TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');
+PRINT @LOGLINE + @csvStore;     EXEC ('BULK INSERT [Data].[Store]            FROM ''' + @csvStore +    ''' WITH (CODEPAGE = ''65001'', TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');

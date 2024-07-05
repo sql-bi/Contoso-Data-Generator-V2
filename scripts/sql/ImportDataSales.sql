@@ -9,7 +9,7 @@ SET @csvSales      = '$(varCD)' + '\inputcsv\sales.csv'
 
 
 PRINT @LOGLINE + 'Load data'
-PRINT @LOGLINE + @csvSales;      EXEC ('BULK INSERT [Data].[Sales]             FROM ''' + @csvSales +     ''' WITH ( TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');
+PRINT @LOGLINE + @csvSales;      EXEC ('BULK INSERT [Data].[Sales]             FROM ''' + @csvSales +     ''' WITH (CODEPAGE = ''65001'', TABLOCK, FORMAT=''CSV'', FIRSTROW=2, FIELDTERMINATOR ='','' )');
 
 PRINT @LOGLINE + 'Shrink database'
 DBCC SHRINKDATABASE(0)
