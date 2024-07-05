@@ -15,12 +15,12 @@ PRINT @LOGLINE + 'Shrink database'
 DBCC SHRINKDATABASE(0)
 
 PRINT @LOGLINE + 'Count records' 
-SELECT       '[CurrencyExchange]', COUNT(1) FROM [CurrencyExchange]
-UNION SELECT '[Customer]',         COUNT(1) FROM [Customer]
-UNION SELECT '[Date]',             COUNT(1) FROM [Date]
-UNION SELECT '[Product]',          COUNT(1) FROM [Product]
-UNION SELECT '[Store]',            COUNT(1) FROM [Store]
-UNION SELECT '[Sales]',            COUNT(1) FROM [Sales]
+SELECT       '[CurrencyExchange]', COUNT(1) FROM [Data].[CurrencyExchange]
+UNION SELECT '[Customer]',         COUNT(1) FROM [Data].[Customer]
+UNION SELECT '[Date]',             COUNT(1) FROM [Data].[Date]
+UNION SELECT '[Product]',          COUNT(1) FROM [Data].[Product]
+UNION SELECT '[Store]',            COUNT(1) FROM [Data].[Store]
+UNION SELECT '[Sales]',            COUNT(1) FROM [Data].[Sales]
 
 PRINT @LOGLINE + 'DB space' 
 EXEC sp_spaceused  

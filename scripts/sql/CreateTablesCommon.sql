@@ -206,23 +206,3 @@ CREATE OR ALTER VIEW dbo.Date AS
       [Data].[Date]
 GO
 
-CREATE OR ALTER VIEW dbo.Sales AS
-SELECT 
-        OrderKey AS [Order Number],
-        [LineNumber] AS [Line Number],
-        [OrderDate] AS [Order Date],
-        [DeliveryDate] AS [Delivery Date],
-        CustomerKey,
-        StoreKey,
-        ProductKey,
-        Quantity,
-        UnitPrice AS [Unit Price],
-        NetPrice AS [Net Price],
-        UnitCost AS [Unit Cost],
-        CurrencyCode AS [Currency Code],
-        ExchangeRate AS [Exchange Rate]
-    FROM
-        [Data].Sales  
-                    
-GO
-

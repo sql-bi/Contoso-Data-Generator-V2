@@ -28,3 +28,32 @@ ALTER TABLE [Data].[Sales] CHECK CONSTRAINT [FK_Sales_Stores]
 CREATE NONCLUSTERED INDEX [IX_Sales_CustomerKey] ON [Data].[Sales] ( [CustomerKey] ASC ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 CREATE NONCLUSTERED INDEX [IX_Sales_ProductKey]  ON [Data].[Sales] ( [ProductKey] ASC )  WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 CREATE NONCLUSTERED INDEX [IX_Sales_StoreKey]    ON [Data].[Sales] ( [StoreKey] ASC )    WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+
+GO
+
+------------------------------------------------------------------------------------------
+--
+--	Views
+--
+------------------------------------------------------------------------------------------
+
+CREATE OR ALTER VIEW dbo.Sales AS
+SELECT 
+        OrderKey AS [Order Number],
+        [LineNumber] AS [Line Number],
+        [OrderDate] AS [Order Date],
+        [DeliveryDate] AS [Delivery Date],
+        CustomerKey,
+        StoreKey,
+        ProductKey,
+        Quantity,
+        UnitPrice AS [Unit Price],
+        NetPrice AS [Net Price],
+        UnitCost AS [Unit Cost],
+        CurrencyCode AS [Currency Code],
+        ExchangeRate AS [Exchange Rate]
+    FROM
+        [Data].Sales  
+                    
+GO
+
