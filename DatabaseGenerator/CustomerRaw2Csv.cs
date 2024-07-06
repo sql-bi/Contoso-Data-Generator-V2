@@ -71,6 +71,9 @@ namespace DatabaseGenerator
                     {
                         cust.CustomerID = currentCustomerID++;
 
+                        // Correct City name if all uppercase
+                        cust.City = NormalizeLettersCases(cust.City);
+
                         // update UK [State] from zip codes
                         if (cust.CountryFull == "United Kingdom")
                         {
@@ -141,6 +144,24 @@ namespace DatabaseGenerator
                 Map(m => m.Latitude);
                 Map(m => m.Longitude);
             }
+        }
+
+
+        private static string NormalizeLettersCases(string s)
+        {
+            if (s.All(c => !Char.IsLetter(c) || (Char.IsLetter(c) && Char.IsUpper(c))))
+            {
+                var newName = new Char[s.Length];
+                bool inWord = false;
+                for (int i = 0; i < s.Length; i++)
+                {
+                    newName[i] = inWord ? Char.ToLower(s[i]) : s[i];                    
+                    inWord = Char.IsLetter(s[i]);
+                }
+                s = new string(newName);
+            }
+
+            return s;
         }
 
     }
