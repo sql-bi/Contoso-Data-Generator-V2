@@ -172,7 +172,7 @@ CREATE OR ALTER VIEW dbo.Store AS
 SELECT 
     StoreKey,
     StoreCode AS [Store Code],
-    CountryName AS [CountryName],
+    CountryName AS [Country],
     [State],
     [Description] AS [Name],
     SquareMeters AS [Square Meters],
