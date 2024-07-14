@@ -17,6 +17,9 @@ PRINT @LOGLINE + @csvOrderRows;  EXEC ('BULK INSERT [Data].[OrderRows]         F
 PRINT @LOGLINE + 'Shrink database'
 DBCC SHRINKDATABASE(0)
 
+PRINT @LOGLINE + 'DB space' 
+EXEC sp_spaceused  
+
 PRINT @LOGLINE + 'Count records' 
 SELECT       '[CurrencyExchange]', COUNT(1) FROM [Data].[CurrencyExchange]
 UNION SELECT '[Customer]',         COUNT(1) FROM [Data].[Customer]
@@ -26,5 +29,3 @@ UNION SELECT '[Store]',            COUNT(1) FROM [Data].[Store]
 UNION SELECT '[Orders]',           COUNT(1) FROM [Data].[Orders]
 UNION SELECT '[OrderRows]',        COUNT(1) FROM [Data].[OrderRows]
 
-PRINT @LOGLINE + 'DB space' 
-EXEC sp_spaceused  

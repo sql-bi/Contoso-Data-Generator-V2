@@ -1,3 +1,4 @@
+PRINT 'SQL > Creating [Data].[Orders] and [Data].[OrderRows]'
 
 CREATE TABLE [Data].[Orders](
      [OrderKey]      [bigint]       NOT NULL,

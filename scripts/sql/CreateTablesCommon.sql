@@ -1,3 +1,5 @@
+PRINT 'SQL > Creating common tables'
+
 --
 -- Create Demo schema if it does not exist
 --

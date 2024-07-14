@@ -1,4 +1,5 @@
- 
+PRINT 'SQL > Creating [Data].[Sales]'
+
 CREATE TABLE [Data].[Sales](
     [OrderKey]      [bigint]       NOT NULL,
     [LineNumber]    [int]          NOT NULL,
@@ -30,6 +31,7 @@ CREATE NONCLUSTERED INDEX [IX_Sales_ProductKey]  ON [Data].[Sales] ( [ProductKey
 CREATE NONCLUSTERED INDEX [IX_Sales_StoreKey]    ON [Data].[Sales] ( [StoreKey] ASC )    WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 
 GO
+
 
 ------------------------------------------------------------------------------------------
 --
