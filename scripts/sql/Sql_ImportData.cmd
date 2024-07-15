@@ -2,9 +2,15 @@ ECHO OFF
 
 CALL Sql_Config.cmd
 
+
 ECHO.
-SET /P "RUNMODE=Enter run mode (sales/orders/both): "
+IF "%1" == "" (
+    SET /P "RUNMODE=Enter run mode (sales/orders/both): "
+) ELSE (
+	SET RUNMODE=%1
+)
 ECHO Mode: %RUNMODE%
+IF "%1" == "" ( PAUSE )
 
 REM --- Create tables ---
                            sqlcmd -S %SqlServerName% -d %DatabaseName%  -i CreateTablesCommon.sql
@@ -22,4 +28,5 @@ IF "%RUNMODE%" == "both"   sqlcmd -S %SqlServerName% -d %DatabaseName%  -i Impor
 ECHO.
 ECHO ### The end ###
 ECHO.
-PAUSE
+
+IF "%1" == "" ( PAUSE )

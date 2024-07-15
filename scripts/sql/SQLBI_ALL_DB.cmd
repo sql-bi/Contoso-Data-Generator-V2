@@ -5,7 +5,7 @@ CALL Sql_Config.cmd
 pause
 
 CALL :BUILDBATABASE  csv-100k 
-REM CALL :BUILDBATABASE  csv-1m
+CALL :BUILDBATABASE  csv-1m
 REM CALL :BUILDBATABASE  csv-10m
 REM CALL :BUILDBATABASE  csv-100m
 
@@ -31,9 +31,10 @@ ECHO ---------------------------------------------------------------------------
 IF EXIST "inputcsv\*.csv"  DEL inputcsv\*.csv
 COPY ..\build_data\out\%~1\*.csv inputcsv
 
-REM ECHO --- Build database
-REM ECHO --------------------------------------------------------------------------------
-REM CALL SqlDBSales.cmd
+
+ECHO --- Fill database
+ECHO --------------------------------------------------------------------------------
+CALL Sql_ImportData.cmd sales
 
 
 ECHO --- Backup database
@@ -43,7 +44,7 @@ SQLCMD -S %SqlServerName% -d %DatabaseName% -Q "select '$(varBackupFile)'; selec
 
 RENAME dump\fullbackup.bak  %~1.bak
 
-REM ..\build_data\bin\7za.exe  a  dump\%~1.bak.7z  dump\%~1.bak 
+..\build_data\bin\7za.exe  a  dump\%~1.bak.7z  dump\%~1.bak 
 
 ECHO.
 ECHO.
