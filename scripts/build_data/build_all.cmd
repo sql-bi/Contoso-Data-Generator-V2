@@ -2,16 +2,16 @@
 ECHO START
 
 CALL :buildandzip  csv-100k    
-CALL :buildandzip  delta-100k  
-CALL :buildandzip  parquet-100k 
 CALL :buildandzip  csv-1m
-CALL :buildandzip  delta-1m
-CALL :buildandzip  parquet-1m
 CALL :buildandzip  csv-10m
-CALL :buildandzip  delta-10m
-CALL :buildandzip  parquet-10m
 CALL :buildandzip  csv-100m      -v500m
+CALL :buildandzip  delta-100k  
+CALL :buildandzip  delta-1m
+CALL :buildandzip  delta-10m
 CALL :buildandzip  delta-100m    -v500m
+CALL :buildandzip  parquet-100k 
+CALL :buildandzip  parquet-1m
+CALL :buildandzip  parquet-10m
 CALL :buildandzip  parquet-100m  -v500m
 GOTO :EOF
 

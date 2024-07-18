@@ -1,5 +1,7 @@
 ECHO OFF
+ECHO.
 
+ECHO Configuration data from Sql_Config.cmd :
 CALL Sql_Config.cmd
 
 

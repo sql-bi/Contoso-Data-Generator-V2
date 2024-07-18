@@ -7,7 +7,7 @@
   "CustomerFakeGenerator": -100000,
   "CustomerPercentage": 0.15,
   "OutputFormat": "CSV",
-  "SalesOrders": "SALES",
+  "SalesOrders": "BOTH",
   "DeltaTableOrdersPerFile": 100000,
   "-CsvMaxOrdersPerFile": 100000,
   "-CsvGzCompression": 1,
