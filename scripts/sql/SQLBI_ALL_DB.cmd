@@ -1,7 +1,7 @@
 @ECHO OFF
 CLS
 
-SET SqlServerName=(LocalDb)\MSSQLLocalDB
+SET SqlServerName=.\K22
 
 @ECHO.
 ECHO SqlServerName: %SqlServerName%
@@ -9,10 +9,10 @@ ECHO SqlServerName: %SqlServerName%
 PAUSE
 
 
-CALL :BUILDBATABASE  "csv-100k"  "Contoso 100k"  "Contoso100k.bak"
-CALL :BUILDBATABASE  "csv-1m"    "Contoso 1M"    "Contoso1M.bak"    
-CALL :BUILDBATABASE  "csv-10m"   "Contoso 10M"   "Contoso10M.bak"   
-CALL :BUILDBATABASE  "csv-100m"  "Contoso 100M"  "Contoso100M.bak"  "-v500m"
+CALL :BUILDBATABASE  "csv-100k"  "Contoso V2 100k"  "ContosoV2100k.bak"
+CALL :BUILDBATABASE  "csv-1m"    "Contoso V2 1M"    "ContosoV21M.bak"    
+REM CALL :BUILDBATABASE  "csv-10m"   "Contoso V2 10M"   "ContosoV210M.bak"   
+REM CALL :BUILDBATABASE  "csv-100m"  "Contoso V2 100M"  "ContosoV2100M.bak"  "-v500m"
 
 ECHO.
 ECHO ######### The end #########
