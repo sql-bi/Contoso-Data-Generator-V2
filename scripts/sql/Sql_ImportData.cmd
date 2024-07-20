@@ -1,8 +1,8 @@
-ECHO OFF
+@ECHO OFF
 ECHO.
 
-ECHO Configuration data from Sql_Config.cmd :
-CALL Sql_Config.cmd
+IF "%1" == ""  SET SqlServerName=(LocalDb)\MSSQLLocalDB
+IF "%1" == ""  SET DatabaseName=ContosoDGV2Test
 
 
 ECHO.
@@ -11,20 +11,26 @@ IF "%1" == "" (
 ) ELSE (
 	SET RUNMODE=%1
 )
-ECHO Mode: %RUNMODE%
+
+@ECHO.
+ECHO RunMode:       %RUNMODE%
+ECHO SqlServerName: %SqlServerName%
+ECHO DatabaseName : %DatabaseName%
+@ECHO.
 IF "%1" == "" ( PAUSE )
 
+
 REM --- Create tables ---
-                           sqlcmd -S %SqlServerName% -d %DatabaseName%  -i CreateTablesCommon.sql
-IF "%RUNMODE%" == "sales"  sqlcmd -S %SqlServerName% -d %DatabaseName%  -i CreateTablesSales.sql 
-IF "%RUNMODE%" == "orders" sqlcmd -S %SqlServerName% -d %DatabaseName%  -i CreateTablesOrders.sql 
-IF "%RUNMODE%" == "both"   sqlcmd -S %SqlServerName% -d %DatabaseName%  -i CreateTablesSales.sql  -i CreateTablesOrders.sql 
+                           sqlcmd -S "%SqlServerName%" -d "%DatabaseName%"  -i CreateTablesCommon.sql
+IF "%RUNMODE%" == "sales"  sqlcmd -S "%SqlServerName%" -d "%DatabaseName%"  -i CreateTablesSales.sql 
+IF "%RUNMODE%" == "orders" sqlcmd -S "%SqlServerName%" -d "%DatabaseName%"  -i CreateTablesOrders.sql 
+IF "%RUNMODE%" == "both"   sqlcmd -S "%SqlServerName%" -d "%DatabaseName%"  -i CreateTablesSales.sql  -i CreateTablesOrders.sql 
 
 REM --- Import data ---
-                           sqlcmd -S %SqlServerName% -d %DatabaseName%  -i ImportDataCommon.sql                            -v varCD="%CD%"
-IF "%RUNMODE%" == "sales"  sqlcmd -S %SqlServerName% -d %DatabaseName%  -i ImportDataSales.sql                             -v varCD="%CD%"
-IF "%RUNMODE%" == "orders" sqlcmd -S %SqlServerName% -d %DatabaseName%  -i ImportDataOrders.sql                            -v varCD="%CD%"
-IF "%RUNMODE%" == "both"   sqlcmd -S %SqlServerName% -d %DatabaseName%  -i ImportDataSales.sql    -i ImportDataOrders.sql  -v varCD="%CD%"
+                           sqlcmd -S "%SqlServerName%" -d "%DatabaseName%"  -i ImportDataCommon.sql                            -v varCD="%CD%"
+IF "%RUNMODE%" == "sales"  sqlcmd -S "%SqlServerName%" -d "%DatabaseName%"  -i ImportDataSales.sql                             -v varCD="%CD%"
+IF "%RUNMODE%" == "orders" sqlcmd -S "%SqlServerName%" -d "%DatabaseName%"  -i ImportDataOrders.sql                            -v varCD="%CD%"
+IF "%RUNMODE%" == "both"   sqlcmd -S "%SqlServerName%" -d "%DatabaseName%"  -i ImportDataSales.sql    -i ImportDataOrders.sql  -v varCD="%CD%"
 
 
 ECHO.
