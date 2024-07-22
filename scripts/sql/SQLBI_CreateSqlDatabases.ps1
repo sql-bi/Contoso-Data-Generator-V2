@@ -17,14 +17,13 @@ param(
 
 
 # Include the list of rows/database name for the database to generate
-# Use 'TrimCustomers' to remove Customers that have no transactions in Sales
 $databases = @()
 $databases += [System.Tuple]::Create( 'Contoso V2 10K' )
 $databases += [System.Tuple]::Create( 'Contoso V2 100K' )
 $databases += [System.Tuple]::Create( 'Contoso V2 1M' )
 # $databases += [System.Tuple]::Create( 'Contoso V2 10M DimRatio' )
 $databases += [System.Tuple]::Create( 'Contoso V2 10M' )
-# $databases += [System.Tuple]::Create( 'Contoso V2 100M' )
+$databases += [System.Tuple]::Create( 'Contoso V2 100M' )
 # $databases += [System.Tuple]::Create( 'Contoso V2 1G' )
 
 

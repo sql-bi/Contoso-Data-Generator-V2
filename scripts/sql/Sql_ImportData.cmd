@@ -1,8 +1,8 @@
 @ECHO OFF
 ECHO.
 
-IF "%1" == ""  SET SqlServerName=(LocalDb)\MSSQLLocalDB
-IF "%1" == ""  SET DatabaseName=ContosoDGV2Test
+IF "%1" == ""  SET SqlServerName=Demo
+IF "%1" == ""  SET DatabaseName=ContosoV2
 
 
 ECHO.
@@ -12,10 +12,19 @@ IF "%1" == "" (
 	SET RUNMODE=%1
 )
 
+IF "%2" == "" (
+    ECHO No Trim
+) ELSE (
+	SET TRIMTABLES=%2
+)
+
+
 @ECHO.
 ECHO RunMode:       %RUNMODE%
 ECHO SqlServerName: %SqlServerName%
 ECHO DatabaseName : %DatabaseName%
+ECHO TrimTables   : %TRIMTABLES%
+
 @ECHO.
 IF "%1" == "" ( PAUSE )
 
@@ -32,6 +41,10 @@ IF "%RUNMODE%" == "sales"  sqlcmd -S "%SqlServerName%" -d "%DatabaseName%"  -i I
 IF "%RUNMODE%" == "orders" sqlcmd -S "%SqlServerName%" -d "%DatabaseName%"  -i ImportDataOrders.sql                            -v varCD="%CD%"
 IF "%RUNMODE%" == "both"   sqlcmd -S "%SqlServerName%" -d "%DatabaseName%"  -i ImportDataSales.sql    -i ImportDataOrders.sql  -v varCD="%CD%"
 
+
+ECHO 
+ECHO
+IF "%TRIMTABLES%" =="Trim" sqlcmd -S "%SqlServerName%" -d "%DatabaseName%"  -i TrimTables.sql -v varCD="%CD%"
 
 ECHO.
 ECHO ### The end ###

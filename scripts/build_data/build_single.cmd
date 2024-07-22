@@ -9,6 +9,9 @@ IF "%1" == "" (
 
 ECHO OPTION:: %id%
 
+IF "%id%" == "csv-10k"       CALL :do_build  %id%  CSV         10000      0.05  2015-01-01  10  2021-05-18  2024-04-20  ""
+IF "%id%" == "delta-10k"     CALL :do_build  %id%  DELTATABLE  10000      0.05  2015-01-01  10  2021-05-18  2024-04-20  2000
+IF "%id%" == "parquet-10k"   CALL :do_build  %id%  PARQUET     10000      0.05  2015-01-01  10  2021-05-18  2024-04-20  ""
 IF "%id%" == "csv-100k"      CALL :do_build  %id%  CSV         100000     0.05  2015-01-01  10  2014-05-18  2024-04-20  ""
 IF "%id%" == "delta-100k"    CALL :do_build  %id%  DELTATABLE  100000     0.05  2015-01-01  10  2014-05-18  2024-04-20  20000
 IF "%id%" == "parquet-100k"  CALL :do_build  %id%  PARQUET     100000     0.05  2015-01-01  10  2014-05-18  2024-04-20  ""
