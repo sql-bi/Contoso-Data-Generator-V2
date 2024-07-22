@@ -12,6 +12,7 @@ PAUSE
 CALL :BUILDBATABASE  "csv-10k"   "Contoso V2 10k"   "ContosoV210k.bak"   "Trim" 
 CALL :BUILDBATABASE  "csv-100k"  "Contoso V2 100k"  "ContosoV2100k.bak"  "Trim" 
 CALL :BUILDBATABASE  "csv-1m"    "Contoso V2 1M"    "ContosoV21M.bak"    "Trim" 
+CALL :BUILDBATABASE  "csv-10m"   "Contoso V2 10M DimRatio"   "ContosoV210MDimRatio.bak"
 CALL :BUILDBATABASE  "csv-10m"   "Contoso V2 10M"   "ContosoV210M.bak"   "Trim" 
 CALL :BUILDBATABASE  "csv-100m"  "Contoso V2 100M"  "ContosoV2100M.bak"  "Trim"  "-v500m"
 
