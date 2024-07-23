@@ -1,15 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 
 
 namespace DatabaseGenerator
 {
 
+    // -----------------
+    // Required for serialization because JsonSerializerIsReflectionEnabledByDefault = false
+    [JsonSerializable(typeof(Config))]
+    internal partial class ConfigSerializerContext : JsonSerializerContext
+    {        
+    }
+    // -----------------
+
+
     public class Config
     {
 
-        // Class used for rading configuration file by json deserialization. Modify carefully.
+        // Class used for reading configuration file by json deserialization. Modify carefully.
 
         public int OrdersCount { get; set; }
         public DateTime StartDT { get; set; }

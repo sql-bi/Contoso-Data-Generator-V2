@@ -68,7 +68,7 @@ namespace DatabaseGenerator.DataWriter.Parquet
                         DeltaField.GetInstance("Status",        "string",     true),
                     }
             };
-            return JsonSerializer.Serialize(schema);
+            return JsonSerializer.Serialize(schema, DeltaSchemaSerializerContext.Default.DeltaSchema);
         }
 
     }

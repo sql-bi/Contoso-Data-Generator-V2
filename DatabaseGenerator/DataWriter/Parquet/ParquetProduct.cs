@@ -32,7 +32,7 @@ namespace DatabaseGenerator.DataWriter.Parquet
         public string CategoryName { get; set; }
         public int SubCategoryKey { get; set; }
         public string SubCategoryName { get; set; }
-       
+
         // ---------------------------------------------------------
 
 
@@ -82,7 +82,7 @@ namespace DatabaseGenerator.DataWriter.Parquet
                     }
             };
 
-            return JsonSerializer.Serialize(schema);
+            return JsonSerializer.Serialize(schema, DeltaSchemaSerializerContext.Default.DeltaSchema);
         }
 
     }

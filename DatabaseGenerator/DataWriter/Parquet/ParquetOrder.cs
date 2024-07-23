@@ -2,6 +2,7 @@
 using Parquet.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text.Json;
 
 
@@ -52,7 +53,8 @@ namespace DatabaseGenerator.DataWriter.Parquet
                         DeltaField.GetInstance("CurrencyCode", "string",    true),
                     }
             };
-            return JsonSerializer.Serialize(schema);
+
+            return JsonSerializer.Serialize(schema, DeltaSchemaSerializerContext.Default.DeltaSchema);
         }
 
     }

@@ -34,7 +34,7 @@ namespace DatabaseGenerator
             string cacheFolder = args[3];
 
             // read config
-            var config = JsonSerializer.Deserialize<Config>(File.ReadAllText(Path.Combine(configFile)));
+            var config = JsonSerializer.Deserialize<Config>(File.ReadAllText(Path.Combine(configFile)), ConfigSerializerContext.Default.Config);
             InjectConfigValuesFromCommandLine(config, args);
             config.SalesOrdersOut = new SOOutput(config.SalesOrders);
 

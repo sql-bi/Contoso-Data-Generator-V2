@@ -56,7 +56,7 @@ namespace DatabaseGenerator.DataWriter.Parquet
                 }
             };
 
-            return JsonSerializer.Serialize(schema);
+            return JsonSerializer.Serialize(schema, DeltaSchemaSerializerContext.Default.DeltaSchema);
         }
 
     }

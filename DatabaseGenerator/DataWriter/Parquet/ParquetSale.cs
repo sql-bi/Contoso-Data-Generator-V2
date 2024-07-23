@@ -78,7 +78,7 @@ namespace DatabaseGenerator.DataWriter.Parquet
                         DeltaField.GetInstance("ExchangeRate",  "decimal(20,5)",    false),
                     }
             };
-            return JsonSerializer.Serialize(schema);
+            return JsonSerializer.Serialize(schema, DeltaSchemaSerializerContext.Default.DeltaSchema);
         }
 
     }

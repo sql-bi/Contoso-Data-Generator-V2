@@ -113,7 +113,7 @@ namespace DatabaseGenerator.DataWriter.Parquet
                         DeltaField.GetInstance("Longitude",     "decimal(20,5)", false),
                     }
             };
-            return JsonSerializer.Serialize(schema);
+            return JsonSerializer.Serialize(schema, DeltaSchemaSerializerContext.Default.DeltaSchema);
         }
 
     }

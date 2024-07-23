@@ -1,12 +1,23 @@
-﻿using System;
+﻿using DatabaseGenerator.DataWriter.Parquet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 
 namespace DatabaseGenerator.DataWriter.Parquet
 {
+
+    // -----------------
+    // Required for serialization because JsonSerializerIsReflectionEnabledByDefault = false
+    [JsonSerializable(typeof(DeltaSchema))]
+    internal partial class DeltaSchemaSerializerContext : JsonSerializerContext
+    {
+    }
+    // -----------------
+
 
     // ---------------------------------------
     // Delta schema json serialization classes

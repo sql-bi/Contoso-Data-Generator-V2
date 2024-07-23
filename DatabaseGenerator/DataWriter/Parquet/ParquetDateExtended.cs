@@ -68,7 +68,7 @@ namespace DatabaseGenerator.DataWriter.Parquet
             {
                 type = "struct",
                 fields = new List<DeltaField>()
-                    {   
+                    {
                         DeltaField.GetInstance("Date",          "timestamp",       false),
                         DeltaField.GetInstance("DateKey",       "string",        true),
                         DeltaField.GetInstance("Year",           "integer",        false),
@@ -89,7 +89,7 @@ namespace DatabaseGenerator.DataWriter.Parquet
                     }
             };
 
-            return JsonSerializer.Serialize(schema);
+            return JsonSerializer.Serialize(schema, DeltaSchemaSerializerContext.Default.DeltaSchema);
         }
     }
 }
