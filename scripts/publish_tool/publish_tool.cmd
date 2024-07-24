@@ -1,4 +1,5 @@
-DEL ..\..\DatabaseGenerator\bin\publish\win-x64\*.*   /Q
+DEL ..\..\DatabaseGenerator\bin\publish\*.* /Q
+DEL ..\..\DatabaseGenerator\bin\publish\win-x64\*.* /Q
 DEL ..\..\DatabaseGenerator\bin\publish\linux-x64\*.* /Q
 DEL ..\..\DatabaseGenerator\bin\publish\osx-x64\*.* /Q
 DEL ..\..\DatabaseGenerator\bin\publish\osx-arm64\*.* /Q
@@ -27,14 +28,20 @@ COPY readme.txt  ..\..\DatabaseGenerator\bin\publish\osx-arm64 /Y
 
 
 cd ..\..\DatabaseGenerator\bin\publish\win-x64 
-tar.exe  -a -c -f DatabaseGenerator.winx64.zip   readme.txt config.json data.xlsx DatabaseGenerator.exe 
+TAR.exe  -a -c -f DatabaseGenerator.winx64.zip   readme.txt config.json data.xlsx DatabaseGenerator.exe 
+COPY DatabaseGenerator.winx64.zip ..\DatabaseGenerator.winx64.zip
+
 cd ..\linux-x64
-tar.exe  -a -c -f DatabaseGenerator.linuxx64.zip   readme.txt config.json data.xlsx DatabaseGenerator
+TAR.exe  -a -c -f DatabaseGenerator.linuxx64.zip   readme.txt config.json data.xlsx DatabaseGenerator
+COPY DatabaseGenerator.linuxx64.zip ..\DatabaseGenerator.linuxx64.zip
 
 cd ..\osx-x64
-tar.exe  -a -c -f DatabaseGenerator.osx-x64.zip   readme.txt config.json data.xlsx DatabaseGenerator
+TAR.exe  -a -c -f DatabaseGenerator.osx-x64.zip   readme.txt config.json data.xlsx DatabaseGenerator
+COPY DatabaseGenerator.osx-x64.zip ..\DatabaseGenerator.osx-x64.zip
 
 cd ..\osx-arm64
-tar.exe  -a -c -f DatabaseGenerator.osx-arm64.zip   readme.txt config.json data.xlsx DatabaseGenerator
+TAR.exe  -a -c -f DatabaseGenerator.osx-arm64.zip   readme.txt config.json data.xlsx DatabaseGenerator
+COPY DatabaseGenerator.osx-arm64.zip ..\DatabaseGenerator.osx-arm64.zip 
+
 
 PAUSE
