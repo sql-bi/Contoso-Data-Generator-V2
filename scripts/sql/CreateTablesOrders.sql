@@ -15,10 +15,10 @@ CREATE TABLE [Data].[OrderRows](
      [OrderKey]   [bigint] NOT NULL,
      [LineNumber] [int]    NOT NULL,
      [ProductKey] [int]    NOT NULL,
-     [Quantity]   [float]  NOT NULL,
-     [UnitPrice]  [float]  NOT NULL,
-     [NetPrice]   [float]  NOT NULL,
-     [UnitCost]   [float]  NOT NULL    
+     [Quantity]   [int]  NOT NULL,
+     [UnitPrice]  [money]  NOT NULL,
+     [NetPrice]   [money]  NOT NULL,
+     [UnitCost]   [money]  NOT NULL    
      CONSTRAINT [PK_OrderRows] PRIMARY KEY CLUSTERED  ( [OrderKey] ASC, [LineNumber] ASC ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 
