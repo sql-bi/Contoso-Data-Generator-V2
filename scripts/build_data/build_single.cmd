@@ -31,5 +31,5 @@ GOTO :eof
 
 :do_build
 ECHO DO BUILD : %1 %2 %3 %4 %5 %6 %7 %8 %9
-..\..\DatabaseGenerator\bin\Release\net6.0\DatabaseGenerator.exe config.json  data.xlsx  out\%1  cache  param:OutputFormat=%2  param:OrdersCount=%3  param:CustomerPercentage=%4  param:StartDT=%5 param:YearsCount=%6 param:CutDateBefore=%7  param:CutDateAfter=%8 param:DeltaTableOrdersPerFile=%9
+..\..\DatabaseGenerator\bin\Release\net8.0\DatabaseGenerator.exe config.json  data.xlsx  out\%1  cache  param:OutputFormat=%2  param:OrdersCount=%3  param:CustomerPercentage=%4  param:StartDT=%5 param:YearsCount=%6 param:CutDateBefore=%7  param:CutDateAfter=%8 param:DeltaTableOrdersPerFile=%9
 
