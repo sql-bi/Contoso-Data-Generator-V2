@@ -209,7 +209,7 @@ namespace DatabaseGenerator
 
             while (true)
             {
-                int quarter = dt1.Month / 4 + 1;
+                int quarter = (dt1.Month - 1) / 3 + 1;
                 string quarterStr = $"Q{quarter}";
                 bool isHoliday = dt1.DayOfWeek == DayOfWeek.Saturday || dt1.DayOfWeek == DayOfWeek.Sunday || IsFederalHoliday(dt1);
                 if (!isHoliday) workingDayNumber++;
@@ -376,7 +376,7 @@ namespace DatabaseGenerator
                 CustomerCluster cc = _customerClusters[i];
                 cc.CustomersFast = new CustomerListFast(tempCustomersPerCluster[i]);
                 Logger.Info($"Cluster: {cc.ClusterID}  ({cc.CustomersWeight}) --> {cc.CustomersFast.Count}");
-            }           
+            }
         }
 
 
